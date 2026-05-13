@@ -1,0 +1,25 @@
+{
+  "name": "granola-local-mcp",
+  "version": "0.1.0",
+  "description": "Local-first MCP server for Granola. Pulls credentials from the local app, refreshes tokens automatically, and exposes list/get/search tools over stdio.",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "granola-local-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
