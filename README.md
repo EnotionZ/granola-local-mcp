@@ -1,5 +1,22 @@
 # granola-local-mcp
 
+> **Deprecated — does not work as of Granola 7.427.3.** Granola moved the
+> data-encryption key (DEK) this server depends on out of `storage.dek` and
+> into a native macOS Keychain item (`com.granola.app.dek`, via a bundled
+> `keychain.node` addon) gated by a code-signing-enforced Keychain access
+> group (`QZ7DHHLN25.granola`). That access group is checked against the
+> *calling process's* Apple code signature, so an unsigned Node process can
+> no longer read the DEK — `storage.dek` is deleted after the one-time
+> migration, and there is no supported way to reach the key from outside the
+> Granola.app binary itself (short of hooking the running, signed process,
+> which is not something this project does).
+>
+> Use Granola's official remote MCP server instead:
+> `https://mcp.granola.ai/mcp` (Streamable HTTP + browser OAuth, no local
+> decryption required). See https://docs.granola.ai/help-center/sharing/integrations/mcp.
+>
+> This repo is kept for reference only and is not being updated.
+
 A local-first MCP server for [Granola](https://granola.ai). It reads the
 encrypted credentials from your Granola installation, refreshes the WorkOS
 token automatically, and calls Granola's API on your behalf. No API key or
